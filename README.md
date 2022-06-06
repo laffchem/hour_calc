@@ -2,7 +2,7 @@
 
 View requirements.txt to see all required python packages.
 
-This will eventually be deployed to a live webapp as it is still a work in progress. Right now you can run this locally and you can keep track of hours for any certification you need. I do plan on adding a method to save the monthly hour audits to csv files as you can then upload them to google sheets or use excel or libreoffice. 
+This will eventually be deployed to a live webapp as it is still a work in progress. Right now you can run this locally and you can keep track of hours for any certification you may be working on. Keep in mind this was designed for a specific certification so not all attributes on the hours form will apply.
 
 # Features:
 
