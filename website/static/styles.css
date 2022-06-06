@@ -1,0 +1,47 @@
+body {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-align: center;
+}
+
+.colored-section {
+    background-color: #127681;
+}
+
+/* Buttons */
+
+.btn-submit {
+    background-color: #00AFC1;
+    color: #fff;
+}
+
+.btn-submit:hover {
+    background-color: #127681;
+}
+
+.btn-reset {
+    background-color: #FFC900;
+}
+
+.btn-reset:hover {
+    background-color: #FED049;
+}
+
+.form-control {
+    width: 80%;
+}
+
+.form-select {
+    width: 80%;
+}
+
+/* Navigation Bar */
+
+
