@@ -13,6 +13,7 @@ h6 {
 
 .colored-section {
     background-color: #127681;
+    margin-bottom: 1.5rem;
 }
 
 /* Buttons */
@@ -34,14 +35,51 @@ h6 {
     background-color: #FED049;
 }
 
+/* Navigation Bar */
+
+.navbar-brand {
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.navbar {
+    padding: 0 0 1rem;
+}
+
+.nav-item {
+    padding-left: 18px;
+    padding-right: 18px;
+}
+
+.nav-link {
+    font-size: 1.2rem;
+}
+
+/* Containers */
+
+.container-fluid {
+    padding: 5% 10%;
+    text-align: left;
+}
+
+
+/* Forms  */
+
 .form-control {
     width: 80%;
+    text-align: center;
+
 }
 
 .form-select {
     width: 80%;
+    text-align: center;
+
+
+
 }
 
-/* Navigation Bar */
-
-
+.hours-form {
+    padding-left: 7.5%;
+}

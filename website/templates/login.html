@@ -1,8 +1,7 @@
 {% extends "base.html" %} {% block title %}Login{% endblock %} {% block content %}
-<form action="" class="row justify-content-center" method="POST">
-    <div class="col-lg-6 ml-auto">
-        <h3>Login</h3>
-
+<h3>Login</h3>
+<form action="" class="row justify-content-center hours-form" method="POST">
+    <div class="col-lg-6">
         <div class="form-group">
             <label for="email">
                 Email Address
@@ -16,8 +15,8 @@
             <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
         </div>
         <br>
-        <button type="submit" class="btn btn-submit">Login</button>
-        <button type="reset" class="btn btn-reset">Reset Form</button>
+        <button type="submit" class="btn btn-submit buttons">Login</button>
+        <button type="reset" class="btn btn-reset buttons">Reset Form</button>
     </div>
 </form>
 

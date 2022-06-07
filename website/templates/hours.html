@@ -1,7 +1,7 @@
 {% extends "base.html" %} {% block title %}Hours{% endblock %} {% block content %}
-<form action="" class="row justify-content-center" method="POST">
-    <div class="col-lg-6 ml-auto">
-    <h3>Hours Submission</h3>
+<h3>Hours Submission</h3>
+<form action="" class="row justify-content-center hours-form" method="POST">
+    <div class="col-lg-6">
     <div class="form-group">
         <label for="date">
             Date
@@ -34,18 +34,19 @@
         <label for="dirInd">
             Direct or Indirect
         </label>
-        <select class="form-select form-select-sm" id="dirInd" name="dirInd" >
+        <select class="form-select form-select-sm" id="dirInd" name="dirInd">
             <option selected>Select the Hours Type</option>
             <option value="direct">Direct</option>
             <option value="indirect">Indirect</option>
         </select>
     </div>
-
-        <br>
-        <button type="submit" class="btn btn-submit">Submit</button>
-        <button type="reset" class="btn btn-reset">Reset</button>
+    <br>
+    <button type="submit" class="btn btn-submit buttons">Submit</button>
+    <button type="reset" class="btn btn-reset buttons">Reset</button>
     </div>
 </form>
+
+
 
 
 {% endblock %}
