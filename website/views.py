@@ -20,15 +20,53 @@ def home():
             flash('Choose both fields!', category='error')
         else:
             hours = Hours.query.all()
+            # Calculates all of the independent hours in terms of various requirements for display on the table.
+
+            # Calculates the direct independent hours from the specific date requested
+            dir_ind_hours = [hours.sessTime for hours in hours if month == hours.date[5:7] and year == hours.date[:4] and hours.supInd == "independent" and hours.dirInd == "direct"]
+            dir_independent_hours = sum(dir_ind_hours)
+
+            #Calculates the indirect independent hours from the specific date requested.
+            ind_ind_hours = [hours.sessTime for hours in hours if month == hours.date[5:7] and year == hours.date[:4] and hours.supInd == "independent" and hours.dirInd == "indirect"]
+            ind_independent_hours = sum(ind_ind_hours)
+
             # Calculates the indepdent hours from the specific date requested
             ind_hours = [hours.sessTime for hours in hours if month == hours.date[5:7] and year == hours.date[:4] and hours.supInd == "independent"]
-            i_hours = sum(ind_hours)
+            independent_hours = sum(ind_hours)
+            
+            # Calculates all of the supervised hours in terms of various requirements for display on the table.
+
+            # Calculates the direct supervised hours from the specific date requested.
+            dir_sup_hours = [hours.sessTime for hours in hours if month == hours.date[5:7] and year == hours.date[:4] and hours.supInd == "supervised" and hours.dirInd == "direct"]
+            dir_supervised_hours = sum(dir_sup_hours)
+
+            # Calculates the indirect supervised hours from the specific date requested.
+            ind_sup_hours = [hours.sessTime for hours in hours if month == hours.date[5:7] and year == hours.date[:4] and hours.supInd == "supervised" and hours.dirInd == "direct"]
+            ind_supervised_hours = sum(ind_sup_hours)
+
             # Calculates the supervised hours from the specific date requested
             sup_hours = [hours.sessTime for hours in hours if month == hours.date[5:7] and year == hours.date[:4] and hours.supInd == "supervised"]
-            s_hours = sum(sup_hours)
+            supervised_hours = sum(sup_hours)
+
+            #Calculates the total hours for the month.
+            total = independent_hours + supervised_hours
 
             flash('Showing hours for selected time.', category='success')
-            return render_template('home.html', user=current_user, hours=hours, month=month, year=year, independent=independent, supervised=supervised, i_hours=i_hours, s_hours=s_hours)
+            return render_template(
+                'home.html', 
+                user=current_user, 
+                hours=hours, 
+                month=month, 
+                year=year, 
+                independent=independent, 
+                supervised=supervised, 
+                dirIndHours = dir_independent_hours, 
+                indIndHours= ind_independent_hours,
+                i_hours = independent_hours,
+                dirSupHours = dir_supervised_hours,
+                indSupHours = ind_supervised_hours, 
+                s_hours=supervised_hours,
+                total=total)
 
     return render_template('home.html', user=current_user)
 
@@ -42,7 +80,8 @@ def hours():
         date = request.form.get('date')
         s_time = request.form.get('startTime')
         e_time = request.form.get('endTime')
-        h_type = request.form.get('supInd')
+        s_type = request.form.get('supInd')
+        h_type = request.form.get('dirInd')
 
         time_diff = datetime.strptime(e_time, '%H:%M') - datetime.strptime(s_time, '%H:%M')
         sess_time = (time_diff.total_seconds()/3600)
@@ -51,7 +90,7 @@ def hours():
         if date == '' or s_time == '' or e_time == '' or h_type == 'None':
             flash('Ensure all fields are populated!', category='error')
         else:
-            new_session = Hours(date=date, start=s_time, end=e_time, sessTime=sess_time, supInd=h_type, user_id=current_user.id)
+            new_session = Hours(date=date, start=s_time, end=e_time, sessTime=sess_time, supInd=s_type, dirInd=h_type, user_id=current_user.id)
             db.session.add(new_session)
             db.session.commit()
             flash('Hours successfully added!', category='success')

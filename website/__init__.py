@@ -3,8 +3,8 @@ from flask_sqlalchemy import SQLAlchemy
 from os import path
 from flask_login import LoginManager
 import flask_mail
-from flask_mail import Mail
-from config import APP_KEY, BOT_EMAIL, BOT_PW
+# from flask_mail import Mail
+from .settings import APP_KEY
 
 db = SQLAlchemy()
 DB_NAME = "users.db"
@@ -17,12 +17,12 @@ def create_app():
     db.init_app(app)
 
     # Mail Server
-    app.config['MAIL_SERVER'] = "smtp.mail.yahoo.com"
-    app.config['MAIL_PORT']= 465
-    app.config['MAIL_USE_SSL'] = True
-    app.config['MAIL_USERNAME'] = BOT_EMAIL
-    app.config['MAIL_PASSWORD'] = BOT_PW
-    mail = Mail(app)
+    # app.config['MAIL_SERVER'] = "smtp.mail.yahoo.com"
+    # app.config['MAIL_PORT']= 465
+    # app.config['MAIL_USE_SSL'] = True
+    # app.config['MAIL_USERNAME'] = BOT_EMAIL
+    # app.config['MAIL_PASSWORD'] = BOT_PW
+    # mail = Mail(app)
     # Creates the login manager for the backend
     login_manager = LoginManager()
     login_manager.login_view = 'auth.login'

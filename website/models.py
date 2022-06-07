@@ -10,6 +10,7 @@ class Hours(db.Model):
     end = db.Column(db.String)
     sessTime = db.Column(db.Float(5))
     supInd = db.Column(db.String)
+    dirInd = db.Column(db.String)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 
