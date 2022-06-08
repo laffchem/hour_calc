@@ -6,7 +6,7 @@ This will eventually be deployed to a live webapp as it is still a work in progr
 
 # Features:
 
-User is able to add hours and denote if they were indepenedent or supervised as well as direct or indirect. This feature is mainly due to the nature of my wife's certification program in which she needs a certain number of hours that are supervised or independent as well as direct or indirect. If you don't need supervision, you probably don't need this program in the first place. Right now you have to choose one but I will be changing it so that you can leave, it as none.
+User is able to add hours and denote if they were indepenedent or supervised as well as direct or indirect. This feature is mainly due to the nature of my wife's certification program in which she needs a certain number of hours that are supervised or independent as well as direct or indirect. If you don't need supervision, you probably don't need this program in the first place. You can leave it blank if you don't need it, but I haven't verified if it calculates correctly yet as that wasn't the focus of making this. That will come in future when I have a little more time.
 
 This is the home page where you are able to view hours stored in the database that you input. From here you are able to delete any that were input by error.
 
