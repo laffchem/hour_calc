@@ -12,7 +12,9 @@ This is the home page where you are able to view hours stored in the database th
 
 ![home page!](/images/home_page.png "Home Page")
 
-This is the hours page where you are able to input any hours you are tracking.
+This is the hours page where you are able to input any hours you are tracking. User is unable to input a start time that is greater
+than the end time. This is validated server side so you'll have to redo the form if you commit that error. It's annoying but keeps your
+database tidy.
 
 ![hours page!](/images/hour-sub.png "Hours Page")
 
