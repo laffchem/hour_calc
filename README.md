@@ -10,7 +10,7 @@ User is able to add hours and denote if they were indepenedent or supervised as 
 
 This is the home page where you are able to view hours stored in the database that you input. From here you are able to delete any that were input by error.
 
-![home page!](/images/home-page.png "Home Page")
+![home page!](/images/home_page.png "Home Page")
 
 This is the hours page where you are able to input any hours you are tracking.
 
