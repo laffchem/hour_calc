@@ -16,6 +16,11 @@ def home():
     if request.method == 'POST':
         month = request.form.get('month')
         year = request.form.get('year')
+
+    # Probably an easier way to do this, but allows me to display the actual month
+    # instead of numbers to make the webpage look nicer.
+        month_disp = monthify(month)
+
         
         if month == "Choose the month to check." or year == "Choose the year to check.":
             flash('Choose both fields!', category='error')
@@ -69,7 +74,8 @@ def home():
                 'home.html', 
                 user=current_user, 
                 hours=hours, 
-                month=month, 
+                month=month,
+                month_disp=month_disp, 
                 year=year, 
                 independent=independent, 
                 supervised=supervised, 
@@ -137,3 +143,30 @@ def delete_sess():
 
     return jsonify({})
 
+@views.route('/home')
+def monthify(month):
+    if month == "01":
+        month = "January"
+    elif month == "02":
+        month = "February"
+    elif month == "03":
+        month = "March"
+    elif month == "04":
+        month = "April"
+    elif month == "05":
+        month = "May"
+    elif month == "06":
+        month = "June"
+    elif month == "07":
+        month = "July"
+    elif month == "08":
+        month = "August"
+    elif month == "09":
+        month = "September"
+    elif month == "10":
+        month = "October"
+    elif month == "11":
+        month = "November"
+    elif month == "12":
+        month = "December"
+    return month
