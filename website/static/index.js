@@ -3,6 +3,6 @@ function deleteSess(sessId) {
         method: 'POST',
         body: JSON.stringify({ sessId: sessId })
     }).then((_res) => {
-        window.location.href = "/";
+        window.location.reload();
     });
 }
