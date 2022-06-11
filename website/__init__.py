@@ -42,7 +42,7 @@ def create_app():
 
     from .models import User, Hours
 
-    create_database(app)
+    # create_database(app)
 
     return app
 
