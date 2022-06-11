@@ -1,0 +1,1 @@
+APP_KEY = "8ik,*IK<"
