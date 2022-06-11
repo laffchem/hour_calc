@@ -23,6 +23,8 @@ def create_app():
     # app.config['MAIL_USERNAME'] = BOT_EMAIL
     # app.config['MAIL_PASSWORD'] = BOT_PW
     # mail = Mail(app)
+
+    
     # Creates the login manager for the backend
     login_manager = LoginManager()
     login_manager.login_view = 'auth.login'
