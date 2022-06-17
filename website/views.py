@@ -1,16 +1,18 @@
 from time import time
 from flask import Blueprint, render_template, request, flash, jsonify
 from flask_login import login_required, current_user
-from .models import Hours
+from .models import Hours, User
 from datetime import datetime, timedelta
 from . import db
 import json
 
 views = Blueprint('views', __name__)
 
+
 @views.route('/', methods=['GET', 'POST'])
 @login_required
 def home():
+    u_id = current_user.get_id()
     independent = "independent"
     supervised = "supervised"
     if request.method == 'POST':
@@ -25,7 +27,7 @@ def home():
         if month == "Choose the month to check." or year == "Choose the year to check.":
             flash('Choose both fields!', category='error')
         else:
-            hours = Hours.query.all()
+            hours = Hours.query.filter_by(user_id=u_id).all()
             # Calculates all of the independent hours in terms of various requirements for display on the table.
 
             # Calculates the direct independent hours from the specific date requested

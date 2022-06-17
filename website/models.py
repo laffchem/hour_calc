@@ -1,8 +1,6 @@
 from . import db
 from flask_login import UserMixin
 
-
-
 class Hours(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.String)
