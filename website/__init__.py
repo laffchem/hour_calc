@@ -9,7 +9,7 @@ import os
 db = SQLAlchemy()
 DB_NAME = "users.db"
 
-ENV = 'dev'
+ENV = 'prod'
 
 def create_app():
     app = Flask(__name__)
