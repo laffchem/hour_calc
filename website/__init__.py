@@ -9,11 +9,18 @@ import os
 db = SQLAlchemy()
 DB_NAME = "users.db"
 
+ENV = 'dev'
 
 def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL1'), f'sqlite:///{DB_NAME}'
+    if ENV == 'dev':
+        app.debug = True
+        app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
+    else:
+        app.debug = False
+        app.config['SQLALCHEMY_DATABASE_URI'] = "postgres://acbgvarawlwgbp:7916c0c76ec22d4d554ac91760019b61f2354d1333cb00fe50f4c274603e712a@ec2-54-147-33-38.compute-1.amazonaws.com:5432/dcd1hsd31cbh7l"
+
     db.init_app(app)
 
     # Mail Server
